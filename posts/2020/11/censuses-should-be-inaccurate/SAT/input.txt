@@ -26,6 +26,10 @@
 ; White female | 3     | 46            | 41
 ; White male   | 2     | 34            | 34
 
+;;; NUMBER OF SOLUTIONS
+
+; * 192,566 solutions when only first 5 statistics are used.
+
 ;;; GENERAL DEFINITIONS
 
 ; Race (0=black, 1=white)
