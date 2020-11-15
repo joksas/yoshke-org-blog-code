@@ -1,0 +1,27 @@
+;;; REAL SOLUTION
+;
+; Race  | Sex    | Age
+: ----- | ------ | ---
+; Black | Male   | 11
+; White | Male   | 23
+; White | Female | 24
+; Black | Female | 24
+; Black | Female | 39
+; White | Female | 41
+; White | Male   | 45
+; Black | Male   | 68
+; White | Female | 73
+;
+;;; SUMMARY STATISTICS
+;
+; Group        | Count | Mean age      | Median age
+; ------------ | ----- | ------------- | ----------
+; Total        | 9     | 38.67 (348/9) | 39
+; Black        | 4     | 35.5          | 31.5
+; White        | 5     | 41.2          | 41
+; Female       | 5     | 40.2          | 39
+; Male         | 4     | 36.75         | 34
+; Black female | 2     | 31.5          | 31.5
+; Black male   | 2     | 39.5          | 39.5
+; White female | 3     | 46            | 41
+; White male   | 2     | 34            | 34
