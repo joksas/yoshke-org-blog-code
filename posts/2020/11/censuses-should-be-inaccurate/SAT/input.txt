@@ -1,7 +1,7 @@
 ;;; REAL SOLUTION
-;
+
 ; Race  | Sex    | Age
-: ----- | ------ | ---
+; ----- | ------ | ---
 ; Black | Male   | 11
 ; White | Male   | 23
 ; White | Female | 24
@@ -11,9 +11,9 @@
 ; White | Male   | 45
 ; Black | Male   | 68
 ; White | Female | 73
-;
+
 ;;; SUMMARY STATISTICS
-;
+
 ; Group        | Count | Mean age      | Median age
 ; ------------ | ----- | ------------- | ----------
 ; Total        | 9     | 38.67 (348/9) | 39
@@ -25,3 +25,49 @@
 ; Black male   | 2     | 39.5          | 39.5
 ; White female | 3     | 46            | 41
 ; White male   | 2     | 34            | 34
+
+;;; GENERAL DEFINITIONS
+
+; Race (0=black, 1=white)
+; I will introduce these two variables, but will only be able to use
+; them in constraint declarations, not in definitions of new variables
+(int BLACK 0)
+(int WHITE 1)
+
+(int R1 0 1)
+(int R2 0 1)
+(int R3 0 1)
+(int R4 0 1)
+(int R5 0 1)
+(int R6 0 1)
+(int R7 0 1)
+(int R8 0 1)
+(int R9 0 1)
+
+; Sex (0=female 1=male)
+(int FEMALE 0)
+(int MALE 1)
+
+(int S1 0 1)
+(int S2 0 1)
+(int S3 0 1)
+(int S4 0 1)
+(int S5 0 1)
+(int S6 0 1)
+(int S7 0 1)
+(int S8 0 1)
+(int S9 0 1)
+ 
+; Age (between 0 and 125 y/o)
+(int MIN_AGE 0)
+(int MAX_AGE 125)
+
+(int A1 0 125)
+(int A2 0 125)
+(int A3 0 125)
+(int A4 0 125)
+(int A5 0 125)
+(int A6 0 125)
+(int A7 0 125)
+(int A8 0 125)
+(int A9 0 125)
