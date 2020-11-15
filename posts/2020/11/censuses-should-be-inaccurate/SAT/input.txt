@@ -507,7 +507,7 @@
 ; We make IDs unique and ordered.
 (< BLACK_MALE_ID_1 BLACK_MALE_ID_2)
 
-; We make sure each ID maps to a black female.
+; We make sure each ID maps to a black male.
 (= BLACK_MALE_ID_1
 (if (and (= R1 BLACK) (= S1 MALE)) 1
 (if (and (= R2 BLACK) (= S2 MALE)) 2
@@ -544,7 +544,7 @@
 ; Mean age = 39.5 = 79/2
 (= (+ BLACK_MALE_AGE_1 BLACK_MALE_AGE_2) 79)
 
-; Mediam age = 39.5 = 79/2
+; Median age = 39.5 = 79/2
 ; Median is equal to average when n = 2.
 
 ;;; WHITE FEMALE
@@ -601,7 +601,7 @@
 (if (and (= R9 WHITE) (= S9 FEMALE) (< WHITE_FEMALE_ID_2 9)) 9
 -1))))))))
 
-; We introduce age variables for black females.
+; We introduce age variables for white females.
 (int WHITE_FEMALE_AGE_1 0 125)
 (int WHITE_FEMALE_AGE_2 0 125)
 (int WHITE_FEMALE_AGE_3 0 125)
@@ -610,7 +610,7 @@
 (<= WHITE_FEMALE_AGE_1 WHITE_FEMALE_AGE_2)
 (<= WHITE_FEMALE_AGE_2 WHITE_FEMALE_AGE_3)
 
-; We fix the ages of black females to the ages of all poeple.
+; We fix the ages of white females to the ages of all poeple.
 (element WHITE_FEMALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8 A9) WHITE_FEMALE_AGE_1)
 (element WHITE_FEMALE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8 A9) WHITE_FEMALE_AGE_2)
 (element WHITE_FEMALE_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8 A9) WHITE_FEMALE_AGE_3)
@@ -620,3 +620,65 @@
 
 ; Median age = 41
 (= WHITE_FEMALE_AGE_2 41)
+
+;;; WHITE MALE
+
+; Count = 2
+(= (+ 
+(if (and (= R1 WHITE) (= S1 MALE)) 1 0)
+(if (and (= R2 WHITE) (= S2 MALE)) 1 0)
+(if (and (= R3 WHITE) (= S3 MALE)) 1 0)
+(if (and (= R4 WHITE) (= S4 MALE)) 1 0)
+(if (and (= R5 WHITE) (= S5 MALE)) 1 0)
+(if (and (= R6 WHITE) (= S6 MALE)) 1 0)
+(if (and (= R7 WHITE) (= S7 MALE)) 1 0)
+(if (and (= R8 WHITE) (= S8 MALE)) 1 0)
+(if (and (= R9 WHITE) (= S9 MALE)) 1 0)
+) 2)
+
+; We introduce IDs for white males.
+(int WHITE_MALE_ID_1 1 8)
+(int WHITE_MALE_ID_2 2 9)
+
+; We make IDs unique and ordered.
+(< WHITE_MALE_ID_1 WHITE_MALE_ID_2)
+
+; We make sure each ID maps to a white male.
+(= WHITE_MALE_ID_1
+(if (and (= R1 WHITE) (= S1 MALE)) 1
+(if (and (= R2 WHITE) (= S2 MALE)) 2
+(if (and (= R3 WHITE) (= S3 MALE)) 3
+(if (and (= R4 WHITE) (= S4 MALE)) 4
+(if (and (= R5 WHITE) (= S5 MALE)) 5
+(if (and (= R6 WHITE) (= S6 MALE)) 6
+(if (and (= R7 WHITE) (= S7 MALE)) 7
+(if (and (= R8 WHITE) (= S8 MALE)) 8
+-1)))))))))
+
+(= WHITE_MALE_ID_2
+(if (and (= R2 WHITE) (= S2 MALE) (< WHITE_MALE_ID_1 2)) 2
+(if (and (= R3 WHITE) (= S3 MALE) (< WHITE_MALE_ID_1 3)) 3
+(if (and (= R4 WHITE) (= S4 MALE) (< WHITE_MALE_ID_1 4)) 4
+(if (and (= R5 WHITE) (= S5 MALE) (< WHITE_MALE_ID_1 5)) 5
+(if (and (= R6 WHITE) (= S6 MALE) (< WHITE_MALE_ID_1 6)) 6
+(if (and (= R7 WHITE) (= S7 MALE) (< WHITE_MALE_ID_1 7)) 7
+(if (and (= R8 WHITE) (= S8 MALE) (< WHITE_MALE_ID_1 8)) 8
+(if (and (= R9 WHITE) (= S9 MALE) (< WHITE_MALE_ID_1 9)) 9
+-1)))))))))
+
+; We introduce age variables for white males.
+(int WHITE_MALE_AGE_1 0 125)
+(int WHITE_MALE_AGE_2 0 125)
+
+; We make sure that the ages are sorted.
+(<= WHITE_MALE_AGE_1 WHITE_MALE_AGE_2)
+
+; We fix the ages of white males to the ages of all poeple.
+(element WHITE_MALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8 A9) WHITE_MALE_AGE_1)
+(element WHITE_MALE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8 A9) WHITE_MALE_AGE_2)
+
+; Mean age = 34 = 68/2
+(= (+ WHITE_MALE_AGE_1 WHITE_MALE_AGE_2) 68)
+
+; Median age = 34 = 68/2
+; Median is equal to average when n = 2.
