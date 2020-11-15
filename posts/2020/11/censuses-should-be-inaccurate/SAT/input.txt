@@ -82,3 +82,10 @@
 (<= A7 A8)
 (<= A8 A9)
 
+;;; TOTAL
+
+; Mean age = 348/9
+(= (+ A1 A2 A3 A4 A5 A6 A7 A8 A9) 348)
+
+; Median age = 39
+(= A5 39)
