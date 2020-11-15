@@ -89,3 +89,83 @@
 
 ; Median age = 39
 (= A5 39)
+
+;;; BLACK
+
+; Count = 4
+; Alternatively, number of white people is 5 (because we set WHITE to 1)
+(= (+ R1 R2 R3 R4 R5 R6 R7 R8 R9) 5)
+
+; We introduce IDs for black people.
+(int BLACK_ID_1 1 6)
+(int BLACK_ID_2 2 7)
+(int BLACK_ID_3 3 8)
+(int BLACK_ID_4 4 9)
+
+; We make IDs unique and ordered.
+(< BLACK_ID_1 BLACK_ID_2)
+(< BLACK_ID_2 BLACK_ID_3)
+(< BLACK_ID_3 BLACK_ID_4)
+
+; We make sure each ID maps to a black person. For that,
+; we use "pigeon hole" technique (see [1] in README.md).
+(= BLACK_ID_1
+(if (= R1 BLACK) 1
+(if (= R2 BLACK) 2
+(if (= R3 BLACK) 3
+(if (= R4 BLACK) 4
+(if (= R5 BLACK) 5
+(if (= R6 BLACK) 6
+-1)))))))
+
+(= BLACK_ID_2
+(if (and (= R2 BLACK) (< BLACK_ID_1 2)) 2
+(if (and (= R3 BLACK) (< BLACK_ID_1 3)) 3
+(if (and (= R4 BLACK) (< BLACK_ID_1 4)) 4
+(if (and (= R5 BLACK) (< BLACK_ID_1 5)) 5
+(if (and (= R6 BLACK) (< BLACK_ID_1 6)) 6
+(if (and (= R7 BLACK) (< BLACK_ID_1 7)) 7
+-1)))))))
+
+(= BLACK_ID_3
+(if (and (= R3 BLACK) (< BLACK_ID_2 3)) 3
+(if (and (= R4 BLACK) (< BLACK_ID_2 4)) 4
+(if (and (= R5 BLACK) (< BLACK_ID_2 5)) 5
+(if (and (= R6 BLACK) (< BLACK_ID_2 6)) 6
+(if (and (= R7 BLACK) (< BLACK_ID_2 7)) 7
+(if (and (= R8 BLACK) (< BLACK_ID_2 8)) 8
+-1)))))))
+
+(= BLACK_ID_4
+(if (and (= R4 BLACK) (< BLACK_ID_3 4)) 4
+(if (and (= R5 BLACK) (< BLACK_ID_3 5)) 5
+(if (and (= R6 BLACK) (< BLACK_ID_3 6)) 6
+(if (and (= R7 BLACK) (< BLACK_ID_3 7)) 7
+(if (and (= R8 BLACK) (< BLACK_ID_3 8)) 8
+(if (and (= R9 BLACK) (< BLACK_ID_3 9)) 9
+-1)))))))
+
+; We introduce age variables for black people.
+(int BLACK_AGE_1 0 125)
+(int BLACK_AGE_2 0 125)
+(int BLACK_AGE_3 0 125)
+(int BLACK_AGE_4 0 125)
+
+; We make sure that the ages are sorted.
+(<= BLACK_AGE_1 BLACK_AGE_2)
+(<= BLACK_AGE_2 BLACK_AGE_3)
+(<= BLACK_AGE_3 BLACK_AGE_4)
+
+; We fix the ages of black people to the ages of all poeple.
+(element BLACK_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8 A9) BLACK_AGE_1)
+(element BLACK_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8 A9) BLACK_AGE_2)
+(element BLACK_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8 A9) BLACK_AGE_3)
+(element BLACK_ID_4 (A1 A2 A3 A4 A5 A6 A7 A8 A9) BLACK_AGE_4)
+
+; Mean age = 35.5 = 142/4
+; (I avoid using built-in multiplication operation because I experienced
+; issues with; maybe it's related to floating-point arithmetic?)
+(= (+ BLACK_AGE_1 BLACK_AGE_2 BLACK_AGE_3 BLACK_AGE_4) 142)
+
+; Median age = 31.5 = 63/2
+(= (+ BLACK_AGE_2 BLACK_AGE_3) 63)
