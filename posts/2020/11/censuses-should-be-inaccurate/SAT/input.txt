@@ -884,3 +884,17 @@
 
 ; Median age = 34 = 68/2
 ; Median is equal to average when n = 2.
+
+;;; CHECK
+
+; (not (and
+; (= R1 BLACK)	(= S1 MALE)	(= M1 SINGLE)	(= A1 11)
+; (= R2 WHITE)	(= S2 MALE)	(= M2 SINGLE)	(= A2 23)
+; (= R3 WHITE)	(= S3 FEMALE)	(= M3 SINGLE)	(= A3 24)
+; (= R4 BLACK)	(= S4 FEMALE)	(= M4 SINGLE)	(= A4 25)
+; (= R5 BLACK)	(= S5 FEMALE)	(= M5 MARRIED)	(= A5 39)
+; (= R6 WHITE)	(= S6 FEMALE)	(= M6 SINGLE)	(= A6 41)
+; (= R7 WHITE)	(= S7 MALE)	(= M7 MARRIED)	(= A7 45)
+; (= R8 BLACK)	(= S8 MALE)	(= M8 MARRIED)	(= A8 68)
+; (= R9 WHITE)	(= S9 FEMALE)	(= M9 MARRIED)	(= A9 73)
+; ))
