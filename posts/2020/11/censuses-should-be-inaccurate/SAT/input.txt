@@ -1,34 +1,32 @@
 ;;; REAL SOLUTION
 
-; Race  | Sex    | Age
-; ----- | ------ | ---
-; Black | Male   | 11
-; White | Male   | 23
-; White | Female | 24
-; Black | Female | 24
-; Black | Female | 39
-; White | Female | 41
-; White | Male   | 45
-; Black | Male   | 68
-; White | Female | 73
+; Race  | Sex    | Marital status | Age
+; ----- | ------ | -------------- | ---
+; Black | Male   | -              | 11
+; White | Male   | Single         | 23
+; White | Female | Single         | 24
+; Black | Female | Single         | 24
+; Black | Female | Married        | 39
+; White | Female | Single         | 41
+; White | Male   | Married        | 45
+; Black | Male   | Married        | 68
+; White | Female | Married        | 73
 
 ;;; SUMMARY STATISTICS
 
-; Group        | Count | Mean age      | Median age
-; ------------ | ----- | ------------- | ----------
-; Total        | 9     | 38.67 (348/9) | 39
-; Black        | 4     | 35.5          | 31.5
-; White        | 5     | 41.2          | 41
-; Female       | 5     | 40.2          | 39
-; Male         | 4     | 36.75         | 34
-; Black female | 2     | 31.5          | 31.5
-; Black male   | 2     | 39.5          | 39.5
-; White female | 3     | 46            | 41
-; White male   | 2     | 34            | 34
-
-;;; NUMBER OF SOLUTIONS
-
-; * 192,566 solutions when only first 5 statistics are used.
+; Group          | Count | Mean age      | Median age
+; -------------- | ----- | ------------- | ----------
+; Total          | 9     | 38.67 (348/9) | 39
+; Black          | 4     | 35.5          | 31.5
+; White          | 5     | 41.2          | 41
+; Female         | 5     | 40.2          | 39
+; Male           | 4     | 36.75         | 34
+; Single adults  | 4     | 28            | 24
+; Married adults | 4     | 56.25         | 56.5
+; Black female   | 2     | 31.5          | 31.5
+; Black male     | 2     | 39.5          | 39.5
+; White female   | 3     | 46            | 41
+; White male     | 2     | 34            | 34
 
 ;;; GENERAL DEFINITIONS
 
@@ -48,7 +46,7 @@
 (int R8 0 1)
 (int R9 0 1)
 
-; Sex (0=female 1=male)
+; Sex (0=female, 1=male)
 (int FEMALE 0)
 (int MALE 1)
 
@@ -62,6 +60,20 @@
 (int S8 0 1)
 (int S9 0 1)
  
+; Marital status (0=single, 1=married)
+(int SINGLE 0)
+(int MARRIED 1)
+
+(int M1 0 1)
+(int M2 0 1)
+(int M3 0 1)
+(int M4 0 1)
+(int M5 0 1)
+(int M6 0 1)
+(int M7 0 1)
+(int M8 0 1)
+(int M9 0 1)
+
 ; Age (between 0 and 125 y/o)
 (int MIN_AGE 0)
 (int MAX_AGE 125)
@@ -420,6 +432,182 @@
 
 ; Median age = 39 = 78/2
 (= (+ MALE_AGE_2 MALE_AGE_3) 78)
+
+;;; SINGLE ADULTS
+
+; Count = 4
+; In i-th row, we include 1 if Mi = SINGLE and Ai >= 18,
+; and 0 otherwise.
+(= (+ 
+(if (and (= M1 SINGLE) (>= A1 18)) 1 0)
+(if (and (= M2 SINGLE) (>= A2 18)) 1 0)
+(if (and (= M3 SINGLE) (>= A3 18)) 1 0)
+(if (and (= M4 SINGLE) (>= A4 18)) 1 0)
+(if (and (= M5 SINGLE) (>= A5 18)) 1 0)
+(if (and (= M6 SINGLE) (>= A6 18)) 1 0)
+(if (and (= M7 SINGLE) (>= A7 18)) 1 0)
+(if (and (= M8 SINGLE) (>= A8 18)) 1 0)
+(if (and (= M9 SINGLE) (>= A9 18)) 1 0)
+) 4)
+
+; We introduce IDs for single adults.
+(int SINGLE_ADULT_ID_1 1 6)
+(int SINGLE_ADULT_ID_2 2 7)
+(int SINGLE_ADULT_ID_3 3 8)
+(int SINGLE_ADULT_ID_4 4 9)
+
+; We make IDs unique and ordered.
+(< SINGLE_ADULT_ID_1 SINGLE_ADULT_ID_2)
+(< SINGLE_ADULT_ID_2 SINGLE_ADULT_ID_3)
+(< SINGLE_ADULT_ID_3 SINGLE_ADULT_ID_4)
+
+; We make sure each ID maps to a single adult.
+(= SINGLE_ADULT_ID_1
+(if (and (= M1 SINGLE) (>= A1 18)) 1
+(if (and (= M2 SINGLE) (>= A2 18)) 2
+(if (and (= M3 SINGLE) (>= A3 18)) 3
+(if (and (= M4 SINGLE) (>= A4 18)) 4
+(if (and (= M5 SINGLE) (>= A5 18)) 5
+(if (and (= M6 SINGLE) (>= A6 18)) 6
+-1)))))))
+
+(= SINGLE_ADULT_ID_2
+(if (and (= M2 SINGLE) (>= A2 18) (< SINGLE_ADULT_ID_1 2)) 2
+(if (and (= M3 SINGLE) (>= A3 18) (< SINGLE_ADULT_ID_1 3)) 3
+(if (and (= M4 SINGLE) (>= A4 18) (< SINGLE_ADULT_ID_1 4)) 4
+(if (and (= M5 SINGLE) (>= A5 18) (< SINGLE_ADULT_ID_1 5)) 5
+(if (and (= M6 SINGLE) (>= A6 18) (< SINGLE_ADULT_ID_1 6)) 6
+(if (and (= M7 SINGLE) (>= A7 18) (< SINGLE_ADULT_ID_1 7)) 7
+-1)))))))
+
+(= SINGLE_ADULT_ID_3
+(if (and (= M3 SINGLE) (>= A3 18) (< SINGLE_ADULT_ID_2 3)) 3
+(if (and (= M4 SINGLE) (>= A4 18) (< SINGLE_ADULT_ID_2 4)) 4
+(if (and (= M5 SINGLE) (>= A5 18) (< SINGLE_ADULT_ID_2 5)) 5
+(if (and (= M6 SINGLE) (>= A6 18) (< SINGLE_ADULT_ID_2 6)) 6
+(if (and (= M7 SINGLE) (>= A7 18) (< SINGLE_ADULT_ID_2 7)) 7
+(if (and (= M8 SINGLE) (>= A8 18) (< SINGLE_ADULT_ID_2 8)) 8
+-1)))))))
+
+(= SINGLE_ADULT_ID_4
+(if (and (= M4 SINGLE) (>= A4 18) (< SINGLE_ADULT_ID_3 4)) 4
+(if (and (= M5 SINGLE) (>= A5 18) (< SINGLE_ADULT_ID_3 5)) 5
+(if (and (= M6 SINGLE) (>= A6 18) (< SINGLE_ADULT_ID_3 6)) 6
+(if (and (= M7 SINGLE) (>= A7 18) (< SINGLE_ADULT_ID_3 7)) 7
+(if (and (= M8 SINGLE) (>= A8 18) (< SINGLE_ADULT_ID_3 8)) 8
+(if (and (= M9 SINGLE) (>= A9 18) (< SINGLE_ADULT_ID_3 9)) 9
+-1)))))))
+
+; We introduce age variables for single adults.
+(int SINGLE_ADULT_AGE_1 0 125)
+(int SINGLE_ADULT_AGE_2 0 125)
+(int SINGLE_ADULT_AGE_3 0 125)
+(int SINGLE_ADULT_AGE_4 0 125)
+
+; We make sure that the ages are sorted.
+(<= SINGLE_ADULT_AGE_1 SINGLE_ADULT_AGE_2)
+(<= SINGLE_ADULT_AGE_2 SINGLE_ADULT_AGE_3)
+(<= SINGLE_ADULT_AGE_3 SINGLE_ADULT_AGE_4)
+
+; We fix the ages of single adults to the ages of all poeple.
+(element SINGLE_ADULT_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8 A9) SINGLE_ADULT_AGE_1)
+(element SINGLE_ADULT_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8 A9) SINGLE_ADULT_AGE_2)
+(element SINGLE_ADULT_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8 A9) SINGLE_ADULT_AGE_3)
+(element SINGLE_ADULT_ID_4 (A1 A2 A3 A4 A5 A6 A7 A8 A9) SINGLE_ADULT_AGE_4)
+
+; Mean age = 28 = 112/4
+(= (+ SINGLE_ADULT_AGE_1 SINGLE_ADULT_AGE_2 SINGLE_ADULT_AGE_3 SINGLE_ADULT_AGE_4) 112)
+
+; Median age = 24 = 48/2
+(= (+ SINGLE_ADULT_AGE_2 SINGLE_ADULT_AGE_3) 48)
+
+;;; MARRIED ADULTS
+
+; Count = 4
+; In i-th row, we include 1 if Mi = MARRIED and Ai >= 18,
+; and 0 otherwise.
+(= (+ 
+(if (and (= M1 MARRIED) (>= A1 18)) 1 0)
+(if (and (= M2 MARRIED) (>= A2 18)) 1 0)
+(if (and (= M3 MARRIED) (>= A3 18)) 1 0)
+(if (and (= M4 MARRIED) (>= A4 18)) 1 0)
+(if (and (= M5 MARRIED) (>= A5 18)) 1 0)
+(if (and (= M6 MARRIED) (>= A6 18)) 1 0)
+(if (and (= M7 MARRIED) (>= A7 18)) 1 0)
+(if (and (= M8 MARRIED) (>= A8 18)) 1 0)
+(if (and (= M9 MARRIED) (>= A9 18)) 1 0)
+) 4)
+
+; We introduce IDs for married adults.
+(int MARRIED_ADULT_ID_1 1 6)
+(int MARRIED_ADULT_ID_2 2 7)
+(int MARRIED_ADULT_ID_3 3 8)
+(int MARRIED_ADULT_ID_4 4 9)
+
+; We make IDs unique and ordered.
+(< MARRIED_ADULT_ID_1 MARRIED_ADULT_ID_2)
+(< MARRIED_ADULT_ID_2 MARRIED_ADULT_ID_3)
+(< MARRIED_ADULT_ID_3 MARRIED_ADULT_ID_4)
+
+; We make sure each ID maps to a married adult.
+(= MARRIED_ADULT_ID_1
+(if (and (= M1 MARRIED) (>= A1 18)) 1
+(if (and (= M2 MARRIED) (>= A2 18)) 2
+(if (and (= M3 MARRIED) (>= A3 18)) 3
+(if (and (= M4 MARRIED) (>= A4 18)) 4
+(if (and (= M5 MARRIED) (>= A5 18)) 5
+(if (and (= M6 MARRIED) (>= A6 18)) 6
+-1)))))))
+
+(= MARRIED_ADULT_ID_2
+(if (and (= M2 MARRIED) (>= A2 18) (< MARRIED_ADULT_ID_1 2)) 2
+(if (and (= M3 MARRIED) (>= A3 18) (< MARRIED_ADULT_ID_1 3)) 3
+(if (and (= M4 MARRIED) (>= A4 18) (< MARRIED_ADULT_ID_1 4)) 4
+(if (and (= M5 MARRIED) (>= A5 18) (< MARRIED_ADULT_ID_1 5)) 5
+(if (and (= M6 MARRIED) (>= A6 18) (< MARRIED_ADULT_ID_1 6)) 6
+(if (and (= M7 MARRIED) (>= A7 18) (< MARRIED_ADULT_ID_1 7)) 7
+-1)))))))
+
+(= MARRIED_ADULT_ID_3
+(if (and (= M3 MARRIED) (>= A3 18) (< MARRIED_ADULT_ID_2 3)) 3
+(if (and (= M4 MARRIED) (>= A4 18) (< MARRIED_ADULT_ID_2 4)) 4
+(if (and (= M5 MARRIED) (>= A5 18) (< MARRIED_ADULT_ID_2 5)) 5
+(if (and (= M6 MARRIED) (>= A6 18) (< MARRIED_ADULT_ID_2 6)) 6
+(if (and (= M7 MARRIED) (>= A7 18) (< MARRIED_ADULT_ID_2 7)) 7
+(if (and (= M8 MARRIED) (>= A8 18) (< MARRIED_ADULT_ID_2 8)) 8
+-1)))))))
+
+(= MARRIED_ADULT_ID_4
+(if (and (= M4 MARRIED) (>= A4 18) (< MARRIED_ADULT_ID_3 4)) 4
+(if (and (= M5 MARRIED) (>= A5 18) (< MARRIED_ADULT_ID_3 5)) 5
+(if (and (= M6 MARRIED) (>= A6 18) (< MARRIED_ADULT_ID_3 6)) 6
+(if (and (= M7 MARRIED) (>= A7 18) (< MARRIED_ADULT_ID_3 7)) 7
+(if (and (= M8 MARRIED) (>= A8 18) (< MARRIED_ADULT_ID_3 8)) 8
+(if (and (= M9 MARRIED) (>= A9 18) (< MARRIED_ADULT_ID_3 9)) 9
+-1)))))))
+
+; We introduce age variables for married adults.
+(int MARRIED_ADULT_AGE_1 0 125)
+(int MARRIED_ADULT_AGE_2 0 125)
+(int MARRIED_ADULT_AGE_3 0 125)
+(int MARRIED_ADULT_AGE_4 0 125)
+
+; We make sure that the ages are sorted.
+(<= MARRIED_ADULT_AGE_1 MARRIED_ADULT_AGE_2)
+(<= MARRIED_ADULT_AGE_2 MARRIED_ADULT_AGE_3)
+(<= MARRIED_ADULT_AGE_3 MARRIED_ADULT_AGE_4)
+
+; We fix the ages of married adults to the ages of all poeple.
+(element MARRIED_ADULT_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8 A9) MARRIED_ADULT_AGE_1)
+(element MARRIED_ADULT_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8 A9) MARRIED_ADULT_AGE_2)
+(element MARRIED_ADULT_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8 A9) MARRIED_ADULT_AGE_3)
+(element MARRIED_ADULT_ID_4 (A1 A2 A3 A4 A5 A6 A7 A8 A9) MARRIED_ADULT_AGE_4)
+
+; Mean age = 56.25 = 225/4
+(= (+ MARRIED_ADULT_AGE_1 MARRIED_ADULT_AGE_2 MARRIED_ADULT_AGE_3 MARRIED_ADULT_AGE_4) 225)
+
+; Median age = 56.5 = 113/2
+(= (+ MARRIED_ADULT_AGE_2 MARRIED_ADULT_AGE_3) 113)
 
 ;;; BLACK FEMALE
 
