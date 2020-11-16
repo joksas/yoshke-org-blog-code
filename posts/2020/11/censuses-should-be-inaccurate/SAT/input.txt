@@ -184,7 +184,7 @@
 (int WHITE_ID_2 2 6)
 (int WHITE_ID_3 3 7)
 (int WHITE_ID_4 4 8)
-(int WHITE_ID_5 4 9)
+(int WHITE_ID_5 5 9)
 
 ; We make IDs unique and ordered.
 (< WHITE_ID_1 WHITE_ID_2)
@@ -270,7 +270,7 @@
 (int FEMALE_ID_2 2 6)
 (int FEMALE_ID_3 3 7)
 (int FEMALE_ID_4 4 8)
-(int FEMALE_ID_5 4 9)
+(int FEMALE_ID_5 5 9)
 
 ; We make IDs unique and ordered.
 (< FEMALE_ID_1 FEMALE_ID_2)
