@@ -430,8 +430,8 @@
 ; Mean age = 36.75 = 147/4
 (= (+ MALE_AGE_1 MALE_AGE_2 MALE_AGE_3 MALE_AGE_4) 147)
 
-; Median age = 39 = 78/2
-(= (+ MALE_AGE_2 MALE_AGE_3) 78)
+; Median age = 34 = 68/2
+(= (+ MALE_AGE_2 MALE_AGE_3) 68)
 
 ;;; SINGLE ADULTS
 
