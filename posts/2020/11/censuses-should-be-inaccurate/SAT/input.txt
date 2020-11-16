@@ -569,6 +569,7 @@
 
 ; We make IDs unique and ordered.
 (< WHITE_FEMALE_ID_1 WHITE_FEMALE_ID_2)
+(< WHITE_FEMALE_ID_2 WHITE_FEMALE_ID_3)
 
 ; We make sure each ID maps to a white female.
 (= WHITE_FEMALE_ID_1
