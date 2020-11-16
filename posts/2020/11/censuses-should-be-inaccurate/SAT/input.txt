@@ -5,7 +5,7 @@
 ; Black | Male   | -              | 11
 ; White | Male   | Single         | 23
 ; White | Female | Single         | 24
-; Black | Female | Single         | 24
+; Black | Female | Single         | 25
 ; Black | Female | Married        | 39
 ; White | Female | Single         | 41
 ; White | Male   | Married        | 45
@@ -14,19 +14,19 @@
 
 ;;; SUMMARY STATISTICS
 
-; Group          | Count | Mean age      | Median age
-; -------------- | ----- | ------------- | ----------
-; Total          | 9     | 38.67 (348/9) | 39
-; Black          | 4     | 35.5          | 31.5
-; White          | 5     | 41.2          | 41
-; Female         | 5     | 40.2          | 39
-; Male           | 4     | 36.75         | 34
-; Single adults  | 4     | 28            | 24
-; Married adults | 4     | 56.25         | 56.5
-; Black female   | 2     | 31.5          | 31.5
-; Black male     | 2     | 39.5          | 39.5
-; White female   | 3     | 46            | 41
-; White male     | 2     | 34            | 34
+; Group         | Count | Mean age      | Median age
+; ------------- | ----- | ------------- | ----------
+; Total         | 9     | 38.78 (349/9) | 39
+; Black         | 4     | 35.75         | 32
+; White         | 5     | 41.2          | 41
+; Female        | 5     | 40.4          | 39
+; Male          | 4     | 36.75         | 34
+; Single adult  | 4     | 28.25         | 24.5
+; Married adult | 4     | 56.25         | 56.5
+; Black female  | 2     | 32            | 32
+; Black male    | 2     | 39.5          | 39.5
+; White female  | 3     | 46            | 41
+; White male    | 2     | 34            | 34
 
 ;;; GENERAL DEFINITIONS
 
@@ -100,8 +100,8 @@
 
 ;;; TOTAL
 
-; Mean age = 348/9
-(= (+ A1 A2 A3 A4 A5 A6 A7 A8 A9) 348)
+; Mean age = 349/9
+(= (+ A1 A2 A3 A4 A5 A6 A7 A8 A9) 349)
 
 ; Median age = 39
 (= A5 39)
@@ -178,13 +178,13 @@
 (element BLACK_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8 A9) BLACK_AGE_3)
 (element BLACK_ID_4 (A1 A2 A3 A4 A5 A6 A7 A8 A9) BLACK_AGE_4)
 
-; Mean age = 35.5 = 142/4
+; Mean age = 35.75 = 143/4
 ; (I avoid using built-in multiplication operation because I experienced
 ; issues with; maybe it's related to floating-point arithmetic?)
-(= (+ BLACK_AGE_1 BLACK_AGE_2 BLACK_AGE_3 BLACK_AGE_4) 142)
+(= (+ BLACK_AGE_1 BLACK_AGE_2 BLACK_AGE_3 BLACK_AGE_4) 143)
 
-; Median age = 31.5 = 63/2
-(= (+ BLACK_AGE_2 BLACK_AGE_3) 63)
+; Median age = 32 = 64/2
+(= (+ BLACK_AGE_2 BLACK_AGE_3) 64)
 
 ;;; WHITE
 
@@ -351,8 +351,8 @@
 (element FEMALE_ID_4 (A1 A2 A3 A4 A5 A6 A7 A8 A9) FEMALE_AGE_4)
 (element FEMALE_ID_5 (A1 A2 A3 A4 A5 A6 A7 A8 A9) FEMALE_AGE_5)
 
-; Mean age = 40.2 = 201/5
-(= (+ FEMALE_AGE_1 FEMALE_AGE_2 FEMALE_AGE_3 FEMALE_AGE_4 FEMALE_AGE_5) 201)
+; Mean age = 40.4 = 202/5
+(= (+ FEMALE_AGE_1 FEMALE_AGE_2 FEMALE_AGE_3 FEMALE_AGE_4 FEMALE_AGE_5) 202)
 
 ; Median age = 39
 (= FEMALE_AGE_3 39)
@@ -528,11 +528,11 @@
 (element SINGLE_ADULT_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8 A9) SINGLE_ADULT_AGE_3)
 (element SINGLE_ADULT_ID_4 (A1 A2 A3 A4 A5 A6 A7 A8 A9) SINGLE_ADULT_AGE_4)
 
-; Mean age = 28 = 112/4
-(= (+ SINGLE_ADULT_AGE_1 SINGLE_ADULT_AGE_2 SINGLE_ADULT_AGE_3 SINGLE_ADULT_AGE_4) 112)
+; Mean age = 28.25 = 113/4
+(= (+ SINGLE_ADULT_AGE_1 SINGLE_ADULT_AGE_2 SINGLE_ADULT_AGE_3 SINGLE_ADULT_AGE_4) 113)
 
-; Median age = 24 = 48/2
-(= (+ SINGLE_ADULT_AGE_2 SINGLE_ADULT_AGE_3) 48)
+; Median age = 24.5 = 49/2
+(= (+ SINGLE_ADULT_AGE_2 SINGLE_ADULT_AGE_3) 49)
 
 ;;; MARRIED ADULTS
 
@@ -680,10 +680,10 @@
 (element BLACK_FEMALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8 A9) BLACK_FEMALE_AGE_1)
 (element BLACK_FEMALE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8 A9) BLACK_FEMALE_AGE_2)
 
-; Mean age = 31.5 = 63/2
-(= (+ BLACK_FEMALE_AGE_1 BLACK_FEMALE_AGE_2) 63)
+; Mean age = 32 = 64/2
+(= (+ BLACK_FEMALE_AGE_1 BLACK_FEMALE_AGE_2) 64)
 
-; Median age = 31.5 = 63/2
+; Median age = 32 = 64/2
 ; Median is equal to average when n = 2.
 
 ;;; BLACK MALE
