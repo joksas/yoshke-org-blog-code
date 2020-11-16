@@ -98,6 +98,19 @@
 (<= A7 A8)
 (<= A8 A9)
 
+; Set minimum marriage age to 18.
+(int MARRIAGE_AGE 18)
+
+(not (and (< A1 MARRIAGE_AGE) (= M1 MARRIED)))
+(not (and (< A2 MARRIAGE_AGE) (= M2 MARRIED)))
+(not (and (< A3 MARRIAGE_AGE) (= M3 MARRIED)))
+(not (and (< A4 MARRIAGE_AGE) (= M4 MARRIED)))
+(not (and (< A5 MARRIAGE_AGE) (= M5 MARRIED)))
+(not (and (< A6 MARRIAGE_AGE) (= M6 MARRIED)))
+(not (and (< A7 MARRIAGE_AGE) (= M7 MARRIED)))
+(not (and (< A8 MARRIAGE_AGE) (= M8 MARRIED)))
+(not (and (< A9 MARRIAGE_AGE) (= M9 MARRIED)))
+
 ;;; TOTAL
 
 ; Mean age = 349/9
@@ -434,19 +447,6 @@
 (= (+ MALE_AGE_2 MALE_AGE_3) 68)
 
 ;;; SINGLE ADULTS
-
-; Set minimum marriage age to 18.
-(int MARRIAGE_AGE 18)
-
-(not (and (< A1 MARRIAGE_AGE) (= M1 MARRIED)))
-(not (and (< A2 MARRIAGE_AGE) (= M2 MARRIED)))
-(not (and (< A3 MARRIAGE_AGE) (= M3 MARRIED)))
-(not (and (< A4 MARRIAGE_AGE) (= M4 MARRIED)))
-(not (and (< A5 MARRIAGE_AGE) (= M5 MARRIED)))
-(not (and (< A6 MARRIAGE_AGE) (= M6 MARRIED)))
-(not (and (< A7 MARRIAGE_AGE) (= M7 MARRIED)))
-(not (and (< A8 MARRIAGE_AGE) (= M8 MARRIED)))
-(not (and (< A9 MARRIAGE_AGE) (= M9 MARRIED)))
 
 ; Count = 4
 ; In i-th row, we include 1 if Mi = SINGLE and Ai >= MARRIAGE_AGE,
