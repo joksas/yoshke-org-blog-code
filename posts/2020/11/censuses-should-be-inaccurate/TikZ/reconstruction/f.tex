@@ -2,6 +2,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathreplacing}
 
 % For tables
 \usepackage{booktabs}
@@ -52,7 +53,10 @@
       \end{tabular}
     };
 
-  \draw[->] (individuals-table) -- node[above] {aggregation} (summary-table);
+  \draw[->] (individuals-table) -- (summary-table);
+
+  \draw [decorate,decoration={brace, amplitude=10pt, mirror}, yshift=0pt] (-3.5, 2.25) -- node[rotate=90, above, yshift=0.5cm] {the only possibility} (-3.5, -2.25);
+
 \end{tikzpicture}
 
 \end{document}
