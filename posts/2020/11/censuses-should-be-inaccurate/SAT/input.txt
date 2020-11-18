@@ -107,6 +107,8 @@
 ;;; TOTAL
 
 ; Mean age = 312/8
+; (I avoid using built-in multiplication operation because I experienced
+; issues with; maybe it's related to floating-point arithmetic?)
 (= (+ A1 A2 A3 A4 A5 A6 A7 A8) 312)
 
 ; Median age = 80/2
@@ -181,8 +183,6 @@
 (element BLACK_ID_4 (A1 A2 A3 A4 A5 A6 A7 A8) BLACK_AGE_4)
 
 ; Mean age = 139/4
-; (I avoid using built-in multiplication operation because I experienced
-; issues with; maybe it's related to floating-point arithmetic?)
 (= (+ BLACK_AGE_1 BLACK_AGE_2 BLACK_AGE_3 BLACK_AGE_4) 139)
 
 ; Median age = 64/2
