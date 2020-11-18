@@ -1,0 +1,38 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{tikz}
+
+% For tables
+\usepackage{booktabs}
+
+% For dashed lines
+\usepackage{arydshln}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \node (summary-table) {%
+      \begin{tabular}{lccc}
+	\toprule
+	Group & Count & Average age & Median age \\
+	\midrule
+	Total         & 8 & 39              & 40   \\
+	\hdashline
+	Black         & 4 & 34.75           & 32   \\
+	White         & 4 & 43.25           & 43   \\
+	Female        & 5 & 38.4            & 39   \\
+	Male          & 3 & 40              & 45   \\
+	\hdashline
+	Single adult  & 2 & 33              & 33   \\
+	Married adult & 4 & 56.25           & 56.5 \\
+	\hdashline
+	Black female  & 2 & 32              & 32   \\
+	Black male    & 2 & 37.5            & 37.5 \\
+	White female  & 3 & 42.67 ($128/3$) & 41   \\
+	White male    & 1 & 45              & 45 \\
+	\bottomrule
+      \end{tabular}
+    };
+\end{tikzpicture}
+
+\end{document}
