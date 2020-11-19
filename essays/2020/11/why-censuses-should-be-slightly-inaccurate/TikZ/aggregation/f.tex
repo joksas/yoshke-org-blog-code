@@ -1,6 +1,7 @@
 \documentclass[tikz]{standalone}
 
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 
 % For tables
 \usepackage{booktabs}
@@ -10,8 +11,25 @@
 
 \begin{document}
 
-\begin{tikzpicture}
-  \node (summary-table) {%
+\begin{tikzpicture}[>=Stealth]
+  \node (individuals-table) at (0, 0) {%
+      \begin{tabular}{lccc}
+	\toprule
+	Race & Sex & Marital status & Age \\
+	\midrule
+	?    & ?   & ?              & ?   \\
+	?    & ?   & ?              & ?   \\
+	?    & ?   & ?              & ?   \\
+	?    & ?   & ?              & ?   \\
+	?    & ?   & ?              & ?   \\
+	?    & ?   & ?              & ?   \\
+	?    & ?   & ?              & ?   \\
+	?    & ?   & ?              & ?   \\
+	\bottomrule
+      \end{tabular}
+    };
+
+  \node (summary-table) at (11, 0) {%
       \begin{tabular}{lccc}
 	\toprule
 	Group & Count & Average age & Median age \\
@@ -33,6 +51,9 @@
 	\bottomrule
       \end{tabular}
     };
+
+  \draw[->] (individuals-table) -- node[above] {aggregation} (summary-table);
 \end{tikzpicture}
 
 \end{document}
+
