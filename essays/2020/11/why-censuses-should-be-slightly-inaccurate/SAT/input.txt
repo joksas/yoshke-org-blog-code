@@ -176,7 +176,7 @@
 (<= BLACK_AGE_2 BLACK_AGE_3)
 (<= BLACK_AGE_3 BLACK_AGE_4)
 
-; We fix the ages of black people to the ages of all poeple.
+; We fix the ages of black people to the ages of all people.
 (element BLACK_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) BLACK_AGE_1)
 (element BLACK_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) BLACK_AGE_2)
 (element BLACK_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8) BLACK_AGE_3)
@@ -248,7 +248,7 @@
 (<= WHITE_AGE_2 WHITE_AGE_3)
 (<= WHITE_AGE_3 WHITE_AGE_4)
 
-; We fix the ages of white people to the ages of all poeple.
+; We fix the ages of white people to the ages of all people.
 (element WHITE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) WHITE_AGE_1)
 (element WHITE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) WHITE_AGE_2)
 (element WHITE_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8) WHITE_AGE_3)
@@ -328,7 +328,7 @@
 (<= FEMALE_AGE_3 FEMALE_AGE_4)
 (<= FEMALE_AGE_4 FEMALE_AGE_5)
 
-; We fix the ages of females to the ages of all poeple.
+; We fix the ages of females to the ages of all people.
 (element FEMALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) FEMALE_AGE_1)
 (element FEMALE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) FEMALE_AGE_2)
 (element FEMALE_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8) FEMALE_AGE_3)
@@ -392,7 +392,7 @@
 (<= MALE_AGE_1 MALE_AGE_2)
 (<= MALE_AGE_2 MALE_AGE_3)
 
-; We fix the ages of males to the ages of all poeple.
+; We fix the ages of males to the ages of all people.
 (element MALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) MALE_AGE_1)
 (element MALE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) MALE_AGE_2)
 (element MALE_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8) MALE_AGE_3)
@@ -454,7 +454,7 @@
 ; We make sure that the ages are sorted.
 (<= SINGLE_ADULT_AGE_1 SINGLE_ADULT_AGE_2)
 
-; We fix the ages of single adults to the ages of all poeple.
+; We fix the ages of single adults to the ages of all people.
 (element SINGLE_ADULT_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) SINGLE_ADULT_AGE_1)
 (element SINGLE_ADULT_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) SINGLE_ADULT_AGE_2)
 
@@ -535,7 +535,7 @@
 (<= MARRIED_ADULT_AGE_2 MARRIED_ADULT_AGE_3)
 (<= MARRIED_ADULT_AGE_3 MARRIED_ADULT_AGE_4)
 
-; We fix the ages of married adults to the ages of all poeple.
+; We fix the ages of married adults to the ages of all people.
 (element MARRIED_ADULT_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) MARRIED_ADULT_AGE_1)
 (element MARRIED_ADULT_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) MARRIED_ADULT_AGE_2)
 (element MARRIED_ADULT_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8) MARRIED_ADULT_AGE_3)
@@ -598,7 +598,7 @@
 ; We make sure that the ages are sorted.
 (<= BLACK_FEMALE_AGE_1 BLACK_FEMALE_AGE_2)
 
-; We fix the ages of black females to the ages of all poeple.
+; We fix the ages of black females to the ages of all people.
 (element BLACK_FEMALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) BLACK_FEMALE_AGE_1)
 (element BLACK_FEMALE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) BLACK_FEMALE_AGE_2)
 
@@ -657,7 +657,7 @@
 ; We make sure that the ages are sorted.
 (<= BLACK_MALE_AGE_1 BLACK_MALE_AGE_2)
 
-; We fix the ages of black males to the ages of all poeple.
+; We fix the ages of black males to the ages of all people.
 (element BLACK_MALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) BLACK_MALE_AGE_1)
 (element BLACK_MALE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) BLACK_MALE_AGE_2)
 
@@ -727,7 +727,7 @@
 (<= WHITE_FEMALE_AGE_1 WHITE_FEMALE_AGE_2)
 (<= WHITE_FEMALE_AGE_2 WHITE_FEMALE_AGE_3)
 
-; We fix the ages of white females to the ages of all poeple.
+; We fix the ages of white females to the ages of all people.
 (element WHITE_FEMALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) WHITE_FEMALE_AGE_1)
 (element WHITE_FEMALE_ID_2 (A1 A2 A3 A4 A5 A6 A7 A8) WHITE_FEMALE_AGE_2)
 (element WHITE_FEMALE_ID_3 (A1 A2 A3 A4 A5 A6 A7 A8) WHITE_FEMALE_AGE_3)
@@ -770,7 +770,7 @@
 ; We introduce age variables for white males.
 (int WHITE_MALE_AGE_1 0 125)
 
-; We fix the ages of white males to the ages of all poeple.
+; We fix the ages of white males to the ages of all people.
 (element WHITE_MALE_ID_1 (A1 A2 A3 A4 A5 A6 A7 A8) WHITE_MALE_AGE_1)
 
 ; Mean age = 45
