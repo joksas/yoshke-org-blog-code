@@ -108,7 +108,7 @@
 
 ; Mean age = 312/8
 ; (I avoid using built-in multiplication operation because I experienced
-; issues with; maybe it's related to floating-point arithmetic?)
+; issues with it; maybe it's related to floating-point arithmetic?)
 (= (+ A1 A2 A3 A4 A5 A6 A7 A8) 312)
 
 ; Median age = 80/2
