@@ -14,7 +14,7 @@ sugar -n -map my.map input.txt
 This will produce two files:
 
 * CNF file which will contain a number of boolean variables and constraints. If you are on Linux, you should be able to find this file in `/tmp` directory. I will move it to my working directory and rename it to `my.cnf`. I think that for some reason Sugar solver produces more boolean variables than required, which results in a lot of duplicate solutions (involving variables in `input.txt`, not the boolean variables) in later stages. I will discuss how I dealt with that.
-* `my.map` file which will contain the description of how the boolean variables in the CNF file are related to the variables (like 'AGE', 'SEX', etc.) that we defined in `input.txt`.
+* `my.map` file which will contain the description of how the boolean variables in the CNF file are related to the variables (like `A_1`, `A_2`, etc.) that we defined in `input.txt`.
 
 Then we use picoSAT solver to find the solutions. I use this solver because it has the ability to enumerate all solutions:
 ```text
