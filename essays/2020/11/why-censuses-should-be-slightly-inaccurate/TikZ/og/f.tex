@@ -1,0 +1,31 @@
+\documentclass[tikz]{standalone}
+
+% For OG image of the essay, I decided to use a set of Laplacian probability density
+% functions because Laplacian noise is often used in differential privacy. I used
+% this TEX file to generate the graph of the function, which I then duplicated and
+% transformed multiple times in Inkscape.
+
+% TikZ diagram
+\usepackage{tikz}
+
+% For plotting functions.
+\usepackage{pgfplots}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    axis line style={draw=none},
+    tick style={draw=none},
+    domain=-5:5,
+    xmin=-5, xmax=5,
+    ymin=-2, ymax=3,
+    width=9cm,
+    height=9/10*5cm,
+    samples=1000,
+    ]
+    \addplot+[black, mark=none] {1/(2*0.25)*exp(-abs(x)/0.25)};
+    \pgfplotsset{ticks=none}
+  \end{axis}
+\end{tikzpicture}
+\end{document}
